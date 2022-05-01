@@ -1,7 +1,4 @@
 <h1>Aplicação DeskTop</h1>
-Aplicação de Controle de Oficina Mecânica desenvolvida em Java com Banco de dados MySql.
-
-
-Módulos de Cadastro: Clientes, Veículos, Placas, Peças, Pedido.
-
-Módulo de relatório: Desenvolvido em JasperReports
+<p>Aplicação de Controle de Oficina Mecânica desenvolvida em Java com Banco de dados MySql.</p>
+<p>Módulos de Cadastro: Clientes, Veículos, Placas, Peças, Pedido.</p>
+<p>Módulo de relatório: Desenvolvido em JasperReports</p>
