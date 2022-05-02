@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relOrcamento" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" isFloatColumnFooter="true" uuid="a3110d8a-98e3-4ba0-9ae9-0762d04e6382">
+	<property name="ireport.zoom" value="1.464100000000083"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Title" fontName="Arial" fontSize="20" isItalic="true" isUnderline="false"/>
+	<style name="Column" markup="none" fontName="Arial" fontSize="11" isBold="true" isItalic="false"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Footer" hAlign="Right" fontName="Arial" fontSize="10" isBold="false"/>
+	<style name="TextDefault" hAlign="Right" fontName="Arial" fontSize="12"/>
+	<style name="Text" fontName="Arial" fontSize="10"/>
+	<style name="TitleOrc" fontName="Arial Black" fontSize="14" isBold="true"/>
+	<style name="TextColunm" fontName="Arial" fontSize="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<subDataset name="Table Dataset 1" uuid="35fc8c09-972b-4caa-8070-aea0d55332a0"/>
+	<queryString>
+		<![CDATA[SELECT
+     cliente.`cli_Cod` AS cliente_cli_Cod,
+     cliente.`cli_Nom` AS cliente_cli_Nom,
+     cliente.`cli_Bai` AS cliente_cli_Bai,
+     cliente.`cli_Tel_Res` AS cliente_cli_Tel_Res,
+     cliente.`cli_Tel_Cel` AS cliente_cli_Tel_Cel,
+     cliente.`cli_Sta` AS cliente_cli_Sta,
+     ordemservico.`os_Cod` AS ordemservico_os_Cod,
+     ordemservico.`os_Dat_Orc` AS ordemservico_os_Dat_Orc,
+     ordemservicoitem.`os_Cod` AS ordemservicoitem_os_Cod,
+     ordemservicoitem.`os_item_Cod` AS ordemservicoitem_os_item_Cod,
+     ordemservicoitem.`os_item_qua` AS ordemservicoitem_os_item_qua,
+     ordemservicoitem.`os_item_val` AS ordemservicoitem_os_item_val,
+     ordemservicoitem.`prod_Cod` AS ordemservicoitem_prod_Cod,
+     veiculo.`vei_Cod` AS veiculo_vei_Cod,
+     veiculo.`cli_Cod` AS veiculo_cli_Cod,
+     veiculo.`vei_Pla` AS veiculo_vei_Pla,
+     veiculo.`vei_Fab` AS veiculo_vei_Fab,
+     veiculo.`vei_Mod` AS veiculo_vei_Mod,
+     veiculo.`vei_Ano_Fab` AS veiculo_vei_Ano_Fab,
+     veiculo.`vei_Com` AS veiculo_vei_Com,
+     veiculo.`vei_Cor` AS veiculo_vei_Cor,
+     veiculo.`vei_Sta` AS veiculo_vei_Sta,
+     veiculo.`vei_Cha` AS veiculo_vei_Cha,
+     produto.`prod_Cod` AS produto_prod_Cod,
+     produto.`prod_Tip` AS produto_prod_Tip,
+     produto.`prod_Des` AS produto_prod_Des,
+     ordemservico.`vei_Cod` AS ordemservico_vei_Cod,
+     ordemservico.`os_Sta` AS ordemservico_os_Sta,
+     ordemservico.`os_Sit` AS ordemservico_os_Sit,
+     cliente.`cli_End` AS cliente_cli_End,
+     ordemservico.`os_Num` AS ordemservico_os_Num,
+     ordemservico.`os_Km_Ent` AS ordemservico_os_Km_Ent,
+     ordemservico.`os_Dat_Ent` AS ordemservico_os_Dat_Ent,
+     ordemservico.`os_Dat_Sai` AS ordemservico_os_Dat_Sai,
+     ordemservico.`os_Tan` AS ordemservico_os_Tan
+FROM
+     `ordemservico` ordemservico INNER JOIN `ordemservicoitem` ordemservicoitem ON ordemservico.`os_Cod` = ordemservicoitem.`os_Cod`
+     INNER JOIN `veiculo` veiculo ON ordemservico.`vei_Cod` = veiculo.`vei_Cod`
+     INNER JOIN `cliente` cliente ON veiculo.`cli_Cod` = cliente.`cli_Cod`
+     INNER JOIN `produto` produto ON ordemservicoitem.`prod_Cod` = produto.`prod_Cod`]]>
+	</queryString>
+	<field name="cliente_cli_Cod" class="java.lang.Integer"/>
+	<field name="cliente_cli_Nom" class="java.lang.String"/>
+	<field name="cliente_cli_Bai" class="java.lang.String"/>
+	<field name="cliente_cli_Tel_Res" class="java.lang.String"/>
+	<field name="cliente_cli_Tel_Cel" class="java.lang.String"/>
+	<field name="cliente_cli_Sta" class="java.lang.String"/>
+	<field name="ordemservico_os_Cod" class="java.lang.Integer"/>
+	<field name="ordemservico_os_Dat_Orc" class="java.sql.Date"/>
+	<field name="ordemservicoitem_os_Cod" class="java.lang.Integer"/>
+	<field name="ordemservicoitem_os_item_Cod" class="java.lang.Integer"/>
+	<field name="ordemservicoitem_os_item_qua" class="java.lang.Integer"/>
+	<field name="ordemservicoitem_os_item_val" class="java.math.BigDecimal"/>
+	<field name="ordemservicoitem_prod_Cod" class="java.lang.Integer"/>
+	<field name="veiculo_vei_Cod" class="java.lang.Integer"/>
+	<field name="veiculo_cli_Cod" class="java.lang.Integer"/>
+	<field name="veiculo_vei_Pla" class="java.lang.String"/>
+	<field name="veiculo_vei_Fab" class="java.lang.String"/>
+	<field name="veiculo_vei_Mod" class="java.lang.String"/>
+	<field name="veiculo_vei_Ano_Fab" class="java.lang.Integer"/>
+	<field name="veiculo_vei_Com" class="java.lang.String"/>
+	<field name="veiculo_vei_Cor" class="java.lang.String"/>
+	<field name="veiculo_vei_Sta" class="java.lang.String"/>
+	<field name="veiculo_vei_Cha" class="java.lang.String"/>
+	<field name="produto_prod_Cod" class="java.lang.Integer"/>
+	<field name="produto_prod_Tip" class="java.lang.String"/>
+	<field name="produto_prod_Des" class="java.lang.String"/>
+	<field name="ordemservico_vei_Cod" class="java.lang.Integer"/>
+	<field name="ordemservico_os_Sta" class="java.lang.String"/>
+	<field name="ordemservico_os_Sit" class="java.lang.String"/>
+	<field name="cliente_cli_End" class="java.lang.String"/>
+	<field name="ordemservico_os_Num" class="java.lang.Long"/>
+	<field name="ordemservico_os_Km_Ent" class="java.lang.Long"/>
+	<field name="ordemservico_os_Dat_Ent" class="java.sql.Date"/>
+	<field name="ordemservico_os_Dat_Sai" class="java.sql.Date"/>
+	<field name="ordemservico_os_Tan" class="java.lang.String"/>
+	<variable name="cliente_cli_Nom_1" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{cliente_cli_Nom}]]></variableExpression>
+	</variable>
+	<variable name="cliente_cli_Nom_2" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{cliente_cli_Nom}]]></variableExpression>
+	</variable>
+	<variable name="cliente_cli_Nom_3" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{cliente_cli_Nom}]]></variableExpression>
+	</variable>
+	<variable name="SUBTOTAL" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{ordemservicoitem_os_item_qua}*$F{ordemservicoitem_os_item_val}]]></variableExpression>
+	</variable>
+	<variable name="VAL_UNIT" class="java.lang.String">
+		<variableExpression><![CDATA[$F{ordemservicoitem_os_item_val}]]></variableExpression>
+	</variable>
+	<variable name="VAL_TOTAL" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{SUBTOTAL}]]></variableExpression>
+	</variable>
+	<variable name="NUN_ITEM" class="java.lang.Integer" incrementType="Column">
+		<variableExpression><![CDATA[$V{NUN_ITEM}+1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="TEL_RES" class="java.lang.String">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{cliente_cli_Tel_Res}.substring(0,0)+"("
++$F{cliente_cli_Tel_Res}.substring(0,2)+")"
++$F{cliente_cli_Tel_Res}.substring(2,6)+"-"
++$F{cliente_cli_Tel_Res}.substring(6,10)]]></initialValueExpression>
+	</variable>
+	<variable name="TEL_CEL" class="java.lang.String">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{cliente_cli_Tel_Cel}.substring(0,0)+"("
+ +$F{cliente_cli_Tel_Cel}.substring(0,2)+")"
+ +$F{cliente_cli_Tel_Cel}.substring(2,7)+"-"
+ +$F{cliente_cli_Tel_Cel}.substring(7,11)]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="1" y="0" width="77" height="32" uuid="1a50c285-3905-454d-a1b8-e9304a578a3b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="22" y="32" width="189" height="32" uuid="5a896283-b57d-4d5f-a29b-38c1d176be61"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUTO CENTER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TextDefault" x="211" y="3" width="343" height="85" uuid="8bbf9139-540b-4b28-a4f8-bf618d6ca0fe"/>
+				<text><![CDATA[Mecânica em geral
+Cambagem
+Suspensão - Freios - Pneus
+Tel.:(12) 3913-7733 / 7820-7554 / ID 114*t4200
+               7814-4580 / ID 96*66170
+Rua Elza B. D'Avila, 47 - Jardim São Dimas - Sjcampos - SP
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TitleOrc" x="1" y="73" width="128" height="20" uuid="fae9db0e-6d58-4955-b613-770e1b6acfde"/>
+				<text><![CDATA[Orçamento N°:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="TitleOrc" x="129" y="73" width="72" height="20" uuid="dc1d839f-834c-4785-848b-42916057f57b"/>
+				<textFieldExpression><![CDATA[$F{ordemservico_os_Num}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="156" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="17" width="555" height="30" uuid="9dad53ff-dbe0-46c5-89e9-3ad6ad18c28d"/>
+			</rectangle>
+			<line>
+				<reportElement x="0" y="0" width="555" height="2" uuid="522186b0-75d5-43df-9880-7837c138aedf"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="5" y="19" width="96" height="12" uuid="fd982ff3-52bc-4300-9319-7f2337f06fda"/>
+				<text><![CDATA[PROPRIETÁRIO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="5" y="33" width="280" height="12" uuid="7450274b-5b72-4f03-a7b7-dd0fd14edc86"/>
+				<textFieldExpression><![CDATA[$F{cliente_cli_Nom}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="295" y="17" width="1" height="30" uuid="7d0a634d-e428-46af-b5a6-cee86b18a01a"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="300" y="19" width="91" height="12" uuid="1d28c086-563d-4d3f-b626-517bcf77f122"/>
+				<text><![CDATA[TEL. RES.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="428" y="17" width="1" height="30" uuid="7552b8ff-99d5-4fd9-843e-2bef934268cf"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="433" y="19" width="91" height="12" uuid="89142a05-612e-4384-9958-2b874d7a623d"/>
+				<text><![CDATA[TEL. CEL.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="47" width="555" height="30" uuid="a36726d7-139a-45a4-92e4-168ae6a58935"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Text" x="5" y="49" width="62" height="12" uuid="7405c908-0b00-4450-82c8-012ef0bdb859"/>
+				<text><![CDATA[ENDEREÇO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="5" y="63" width="280" height="12" uuid="9844a44b-f1ae-449c-9464-ec28b527f063"/>
+				<textFieldExpression><![CDATA[$F{cliente_cli_End}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="295" y="47" width="1" height="30" uuid="ada1c3b5-5552-4d7d-b6ae-c208b5872125"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="300" y="49" width="91" height="12" uuid="bc2b06b0-f460-4071-b6ff-3ee21f26f062"/>
+				<text><![CDATA[BAIRRO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="300" y="63" width="100" height="12" uuid="85e88d21-d613-4f96-a8b3-9374414ffae2"/>
+				<textFieldExpression><![CDATA[$F{cliente_cli_Bai}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="77" width="555" height="30" uuid="9865f705-a367-4e39-9fee-ae06904adbaa"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Text" x="5" y="79" width="52" height="12" uuid="c32f1f72-1362-4154-9a59-048a0de11c23"/>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="5" y="93" width="52" height="12" uuid="ec1ed135-4e5f-4190-a29e-5104694de61c"/>
+				<textFieldExpression><![CDATA[$F{veiculo_vei_Pla}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="60" y="77" width="1" height="30" uuid="e8744ac2-2779-4a85-957e-053ccafa67bc"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="65" y="79" width="64" height="12" uuid="c2c37404-b6b8-4d90-90f8-b3793db890a7"/>
+				<text><![CDATA[FABRICANTE]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="65" y="93" width="170" height="12" uuid="563dec24-d3ad-43c8-b65a-23ad85044256"/>
+				<textFieldExpression><![CDATA[$F{veiculo_vei_Fab}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="242" y="77" width="1" height="30" uuid="bfff0348-1284-40e6-8dec-dcde6d0a9167"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="248" y="79" width="64" height="12" uuid="b3675604-838d-41fa-a53f-b0e120456283"/>
+				<text><![CDATA[MODELO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="248" y="93" width="234" height="12" uuid="0fc0e53b-81ba-4ebe-9cb7-0b6045c0ab74"/>
+				<textFieldExpression><![CDATA[$F{veiculo_vei_Mod}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="495" y="77" width="1" height="30" uuid="24b65416-745e-4132-8959-1e379ea73a0c"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="500" y="79" width="33" height="12" uuid="12979d79-9cc1-4844-8730-ae25790057e5"/>
+				<text><![CDATA[ANO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="500" y="93" width="54" height="12" uuid="042dd706-f9b5-472f-b02f-a5039a3f31ec"/>
+				<textFieldExpression><![CDATA[$F{veiculo_vei_Ano_Fab}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="107" width="555" height="30" uuid="94c99b62-bff6-458a-a680-ad2977c864a2"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Text" x="5" y="109" width="55" height="12" uuid="6a00cea3-ea3d-4ef7-a652-80f49a1ae9c7"/>
+				<text><![CDATA[COR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="104" y="107" width="1" height="30" uuid="649eeb45-ef39-4eed-b322-f3425edb3556"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="109" y="109" width="74" height="12" uuid="8836a51c-222d-4808-84d6-d585c3c90697"/>
+				<text><![CDATA[COMBUSTÍVEL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="227" y="107" width="1" height="30" uuid="3d170d05-378c-46e0-be31-befd0a3de2ed"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="5" y="123" width="96" height="12" uuid="696687f5-8da6-4812-a065-51da1a80a956"/>
+				<textFieldExpression><![CDATA[$F{veiculo_vei_Cor}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="109" y="123" width="112" height="12" uuid="578912ff-68a6-413e-a547-6173b571f9f7"/>
+				<textFieldExpression><![CDATA[$F{veiculo_vei_Com}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement style="Text" x="300" y="31" width="125" height="12" uuid="f22c76d2-c96d-4cca-acd7-f882885b50b4"/>
+				<textFieldExpression><![CDATA[$V{TEL_RES}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="433" y="31" width="117" height="12" uuid="c6918142-325c-4320-978d-9d26e0055b5a"/>
+				<textFieldExpression><![CDATA[$V{TEL_CEL}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="318" y="107" width="1" height="30" uuid="b998a39e-0c0c-4e47-9ef0-dce7f2d16363"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="233" y="109" width="73" height="12" uuid="363d7eec-95a6-4a1d-a513-0e4ba1057786"/>
+				<text><![CDATA[Data Entrada]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement style="Text" x="233" y="123" width="74" height="12" uuid="0f33ddcc-3f86-440d-950d-c2bd480f2a4a"/>
+				<textFieldExpression><![CDATA[$F{ordemservico_os_Dat_Ent}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Text" x="324" y="109" width="57" height="12" uuid="04727eea-25a3-4310-b78c-44e2abb00be5"/>
+				<text><![CDATA[KM Entrada]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Text" x="324" y="123" width="84" height="12" uuid="3c02be50-d8be-405d-b30c-cceb1345bd97"/>
+				<textFieldExpression><![CDATA[$F{ordemservico_os_Km_Ent}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="420" y="107" width="1" height="30" uuid="bbf79b38-5827-4299-b402-9ff164055028"/>
+			</line>
+			<staticText>
+				<reportElement style="Text" x="426" y="109" width="69" height="12" uuid="4466eec7-2107-45c6-95ed-95f424689149"/>
+				<text><![CDATA[Data saída]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement style="Text" x="426" y="123" width="100" height="12" uuid="8819d97c-f07f-46d0-921a-4ee1c4916d2f"/>
+				<textFieldExpression><![CDATA[$F{ordemservico_os_Dat_Sai}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="33" y="0" width="1" height="20" uuid="cf35c1df-eaf9-455f-a177-ab7790dba4f8"/>
+			</line>
+			<staticText>
+				<reportElement style="Column" x="3" y="3" width="28" height="14" uuid="1e852e15-fd0a-4850-bab7-089c69ba04a8"/>
+				<text><![CDATA[ITEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column" x="36" y="3" width="328" height="14" uuid="8349409e-c32f-4002-9aea-e8bcc11401a6"/>
+				<text><![CDATA[DESCRIÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column" x="373" y="3" width="32" height="14" uuid="8d477bcf-a1f5-4867-b574-055570abf888"/>
+				<text><![CDATA[QTDE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="370" y="0" width="1" height="20" uuid="8269e275-7292-453b-9c62-c985f83144dc"/>
+			</line>
+			<staticText>
+				<reportElement style="Column" x="410" y="3" width="72" height="14" uuid="40d04dd7-73f8-412b-9101-fee8d2b83322"/>
+				<text><![CDATA[PREÇO UNIT.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="407" y="0" width="1" height="20" uuid="756279d6-eca8-41a6-ba45-ac7c9151bc37"/>
+			</line>
+			<staticText>
+				<reportElement style="Column" x="487" y="3" width="65" height="14" uuid="7a7dbe71-6cbc-4790-ae76-fd1cc5cf1d85"/>
+				<text><![CDATA[SUB-TOTAL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="484" y="0" width="1" height="20" uuid="4bd14594-9afb-4481-9d93-7db994d67fc2"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="20" uuid="f21c4c65-e54b-49f7-a7bb-b178191ff5ec"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="20" uuid="b759c6c4-0ae2-46fd-aec5-70bbc5e30734"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="6c022c3f-0452-489d-b1a4-34a9b27b88d5"/>
+			</line>
+			<line>
+				<reportElement x="0" y="18" width="555" height="1" uuid="2d721867-9396-4968-9124-00edb1fd24f8"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{NUN_ITEM}.intValue()>=1)]]></printWhenExpression>
+			<line>
+				<reportElement x="0" y="0" width="1" height="16" uuid="30c61747-c29d-440e-9d4b-30e3e142d693"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="33" y="0" width="1" height="16" uuid="bed58bc4-d1ef-46c5-9236-3bcf796ddcbb"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="16" uuid="c28a8205-4716-49cd-b56f-a2e1113a253f"/>
+			</line>
+			<textField>
+				<reportElement style="TextColunm" x="36" y="1" width="332" height="14" uuid="cb693395-edfb-4dda-8f1b-3a171b6159f6"/>
+				<textFieldExpression><![CDATA[$F{produto_prod_Des}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="370" y="0" width="1" height="16" uuid="ba60d4cc-fad1-47e1-920f-db33f49dd2dc"/>
+			</line>
+			<line>
+				<reportElement x="407" y="0" width="1" height="16" uuid="f38dc024-caef-4eb9-99a4-44901ee18374"/>
+			</line>
+			<line>
+				<reportElement x="484" y="0" width="1" height="16" uuid="c3ad7494-4063-4aac-910b-30f94ab83835"/>
+			</line>
+			<textField>
+				<reportElement style="TextColunm" x="373" y="1" width="32" height="14" uuid="a1a1405d-11a1-479b-91c2-67c9054ed4c5"/>
+				<textFieldExpression><![CDATA[$F{ordemservicoitem_os_item_qua}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" #,##0.00">
+				<reportElement style="TextColunm" x="487" y="0" width="65" height="14" uuid="9de93713-2f5b-4cdc-9423-0f01aed5738d"/>
+				<textFieldExpression><![CDATA[$V{SUBTOTAL}]]></textFieldExpression>
+			</textField>
+			<textField pattern=" #,##0.00">
+				<reportElement style="TextColunm" x="410" y="2" width="72" height="14" uuid="fde78be0-b058-4706-8aee-f9f6a20550b5"/>
+				<textFieldExpression><![CDATA[$V{VAL_UNIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TextColunm" x="3" y="1" width="28" height="14" uuid="3904d2b9-4b0d-4879-b98a-4f72d025705b"/>
+				<textFieldExpression><![CDATA[$V{NUN_ITEM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="62">
+			<printWhenExpression><![CDATA[new Boolean($V{NUN_ITEM}.intValue()>=1)]]></printWhenExpression>
+			<staticText>
+				<reportElement style="Column" x="381" y="8" width="74" height="20" uuid="4447d236-c09e-4888-9024-c1585c42df01"/>
+				<text><![CDATA[SUB-TOTAL:]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="455" y="8" width="100" height="20" uuid="ab9bd27a-386b-4d49-ba3e-0d487f0f42d2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{VAL_TOTAL}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="cead4490-0c1a-4b86-b7f0-584fd7d36f39"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement style="Footer" x="455" y="5" width="100" height="20" uuid="5d6a3cd8-78c7-4ceb-8262-643aac5a8e3f"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="5" width="221" height="20" uuid="df96f53d-fd7c-43f1-8606-5190fe3e7b4f"/>
+				<textFieldExpression><![CDATA[new java.util.Date ()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="c334328f-ff68-41ca-a646-598e662729df"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

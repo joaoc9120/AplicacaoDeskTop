@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relCliente" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="95661bba-db1e-4955-b2e4-ac21704d8325">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     cliente.`cli_Cod` AS cliente_cli_Cod,
+     cliente.`cli_Nom` AS cliente_cli_Nom,
+     cliente.`cli_Tip_Pes` AS cliente_cli_Tip_Pes
+FROM
+     `cliente` cliente]]>
+	</queryString>
+	<field name="cliente_cli_Cod" class="java.lang.Integer"/>
+	<field name="cliente_cli_Nom" class="java.lang.String"/>
+	<field name="cliente_cli_Tip_Pes" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="185" height="20" uuid="93b0084c-9894-4665-8112-7b5f786d21c9"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="185" height="20" uuid="602de899-6249-4640-bd58-5b4a751b03bf"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="185" height="20" uuid="1b2eb39b-dea2-40d9-9514-b3761c39236c"/>
+				<text><![CDATA[Tipo de Pessoa]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="20" uuid="23e64241-cd25-49b4-8da2-41481441b03d"/>
+				<textFieldExpression><![CDATA[$F{cliente_cli_Cod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="20" uuid="1f9a0f09-cb57-4037-aa55-7f7b242b77c7"/>
+				<textFieldExpression><![CDATA[$F{cliente_cli_Nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="20" uuid="1c465ead-ff50-47c2-abcf-9c6f66ead9cd"/>
+				<textFieldExpression><![CDATA[$F{cliente_cli_Tip_Pes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
